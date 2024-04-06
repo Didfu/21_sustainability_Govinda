@@ -1,14 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POWER AND CRITICAL HOURS</title>
+    <title>Predictions</title>
+    <link rel="stylesheet" href="{% static 'styling/styles.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        {% block body %}
-        {% endblock %}
-    </form>
+    <div style="background-color: white;">
+        <form>
+            {% block body %}
+            {% endblock %}
+        </form>
+    </div>
+</body>
+</body>
 </body>
 </html>
