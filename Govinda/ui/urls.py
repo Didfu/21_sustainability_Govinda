@@ -1,5 +1,5 @@
 """
-URL configuration for ui project.
+URL configuration for Govinda project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ui import views
+from ui import views as aviews
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", views.entrypage, name="entrypage"),
+    path('live/', aviews.live_view, name='live'),
+    path('month/', aviews.month_view, name='month'),
+    path('input/', aviews.input_view, name='input'),
+    path('', aviews.govinda_view, name='govinda'),  # Default pattern
 ]
+
