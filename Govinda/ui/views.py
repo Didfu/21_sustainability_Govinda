@@ -14,9 +14,7 @@ def input_view(request):
         time = request.POST.get('time')
         air_temp = request.POST.get('airTemperature')
         wind_speed = request.POST.get('windSpeed')
-        print(date,time, air_temp, wind_speed)
-    # Process the input data
-    # ...
+
     return render(request, 'web/input.html')
 
 def govinda_view(request):
