@@ -3,12 +3,6 @@ from flask import redirect
 
 app = Flask(__name__)
 
-# Sample dataset for demonstration
-data = {
-    'X': [1, 2, 3, 4, 5],
-    'y': [2, 4, 5, 4, 5]
-}
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -27,24 +21,9 @@ def input():
         
         return render_template('input.html')
 @app.route('/predict', methods=['POST'])
-def predict():
-    # Get user input
-    input_x = int(request.form.get('input_x', 0))
-    
-    # Make prediction using the model
-    prediction = model.predict([[input_x]])
-    
-    # Generate graph
-    plt.scatter(data['X'], data['y'], color='blue')
-    plt.scatter(input_x, prediction, color='red')
-    plt.plot(data['X'], model.predict(X_train), color='green')
-    plt.xlabel('X')
-    plt.ylabel('y')
-    plt.title('Linear Regression Prediction')
-    plt.savefig('static/prediction_plot.png')  # Save the plot
-    plt.close()  # Close the plot to free up memory
-    
-    return render_template('result.html', prediction=prediction[0])
+
+
+
 @app.route('/month')
 def result():
     return render_template('month.html')
