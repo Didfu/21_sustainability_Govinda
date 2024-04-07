@@ -1,7 +1,4 @@
 from flask import Flask, render_template, request
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
 from flask import redirect
 
 app = Flask(__name__)
@@ -11,12 +8,6 @@ data = {
     'X': [1, 2, 3, 4, 5],
     'y': [2, 4, 5, 4, 5]
 }
-
-# Load machine learning model
-model = LinearRegression()
-X_train = pd.DataFrame(data['X'])
-y_train = pd.DataFrame(data['y'])
-model.fit(X_train, y_train)
 
 @app.route('/')
 def index():
