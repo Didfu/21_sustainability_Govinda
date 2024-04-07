@@ -71,9 +71,10 @@ class PowerPredictionModel:
         return n1, n2, n3
 
 if __name__ == "__main__":
-    p = PowerPredictionModel("Power19-23.csv")
+    p = PowerPredictionModel("Datasets/Power19-23.csv")
     p.preprocess_data()
     p.train_model()
     p.evaluate()
-    p.predict_power(pd.read_csv("validation.csv"))
+    data = pd.read_csv("Datasets/validation.csv")
+    print(p.predict_power(data))
 

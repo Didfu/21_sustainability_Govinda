@@ -1,8 +1,10 @@
 import pandas as pd
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-from power_generation import PowerPredictionModel 
+from power_generation import PowerPredictionModel
+import matplotlib.pyplot as plt
 
 class StabilityPredictor:
     def __init__(self, csv_file):
@@ -64,10 +66,21 @@ class StabilityPredictor:
         
         # Use the trained model to predict stability
         predicted_stability = self.model.predict(new_df)
-
-        # Map predicted stability back to 'stable' or 'unstable'
-
         print(predicted_stability)
+        counts = np.bincount(predicted_stability)
+        labels = ['Unstable', 'Stable']  # Labels for the pie chart
+        colors = ['lightcoral','lightskyblue']  # Colors for the pie chart slices
+
+        plt.figure(figsize=(8, 8))
+        plt.pie(counts, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+        plt.savefig("images/pie.png")
+
+
+def createLineGraph(time, feature):
+    pass
+
+    
 
 # Example usage:
 if __name__ == "__main__":
