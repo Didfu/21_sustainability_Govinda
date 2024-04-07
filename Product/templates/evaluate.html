@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Evaluation Results</title>
+  </head>
+  <body>
+    <h1>Model Evaluation Results</h1>
+
+    {% for key, value in data.items() %}
+    <h2>{{ key }}</h2>
+    <ul>
+      {% for inner_key, inner_value in value.items() %}
+      <li>
+        {{ inner_key }}: {% if inner_value is mapping %}
+        <ul>
+          {% for sub_key, sub_value in inner_value.items() %}
+          <li>{{ sub_key }}: {{ sub_value }}</li>
+          {% endfor %}
+        </ul>
+        {% else %} {{ inner_value }} {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </body>
+</html>
